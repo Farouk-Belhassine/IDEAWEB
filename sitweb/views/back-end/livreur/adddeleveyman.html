@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+	
+<!-- Mirrored from www.spruko.com/demo/splite/faq.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 10 Feb 2019 18:35:02 GMT -->
+<head>
+
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>test </title>
+        <script>
+    
+    function verif() {
+        
+		if (document.getElementById("mail").value=="") {
+			alert("Tapez un email valable pour avoir une réponse.");
+			document.getElementById("mail").focus();
+			return false;
+		}
+		if (document.getElementById("nom").value=="") {
+			alert("Pensez à taper un nom !");
+			document.getElementById("nom").focus();
+			return false;
+
+		}
+        if (document.getElementById("prenom").value=="") {
+			alert("Pensez à taper un prenom !");
+			document.getElementById("prenom").focus();
+			return false;
+
+		}
+        if (document.getElementById("cin").value=="") {
+			alert("Pensez à taper un cin !");
+			document.getElementById("cin").focus();
+			return false;
+
+		}
+        if (document.getElementById("date").value=="") {
+			alert("Pensez à taper un date !");
+			document.getElementById("date").focus();
+			return false;
+
+		}
+        if (document.getElementById("num").value==0) {
+			alert("Pensez à taper un num de permis !");
+			document.getElementById("num").focus();
+			return false;
+
+		}
+        if (document.getElementById("secteur").value=="") {
+			alert("Pensez à taper un secteur !");
+			document.getElementById("secteur").focus();
+			return false;
+
+		}
+        if (document.getElementById("tel").value==0) {
+			alert("Pensez à taper un tel !");
+			document.getElementById("tel").focus();
+			return false;
+
+		}
+	}
+        </script>
+		<!--favicon -->
+		<link rel="icon" href="favicon.html" type="image/x-icon"/>
+
+		<!--Bootstrap.min css-->
+		<link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+
+		<!--Icons css-->
+		<link rel="stylesheet" href="assets/css/icons.css">
+
+		<!--mCustomScrollbar css-->
+		<link rel="stylesheet" href="assets/plugins/scroll-bar/jquery.mCustomScrollbar.css">
+
+		<!--Style css-->
+		<link rel="stylesheet" href="assets/css/style.css">
+
+		<!--Sidemenu css-->
+		<link rel="stylesheet" href="assets/plugins/toggle-menu/sidemenu.css">
+
+    </head>
+    
+    <body class="app ">
+        <div class="wave -three"></div>
+    
+            <div id="spinner"></div>
+    
+            <!--app open-->
+            <div id="app" class="page">
+                <div class="main-wrapper" >
+    
+                    <!--nav open-->
+                    <nav class="navbar navbar-expand-lg main-navbar">
+                        <a class="header-brand" href="index-2.html">
+                            <img src="assets/img/brand/logo-white.png" class="header-brand-img" alt="Splite-Admin  logo">
+                        </a>
+                        <form class="form-inline mr-auto">
+                            <ul class="navbar-nav mr-2">
+                                <li><a href="#" data-toggle="sidebar" class="nav-link nav-link toggle"><i class="fa fa-reorder"></i></a></li>
+                                <li><a href="#" data-toggle="search" class="nav-link nav-link d-md-none navsearch"><i class="fa fa-search"></i></a></li>
+                            </ul>
+                            <div class="search-element mr-3">
+                                <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                                <span class="Search-icon"><i class="fa fa-search"></i></span>
+                            </div>
+                        </form>
+                        <ul class="navbar-nav navbar-right">
+                           
+                            <li class="dropdown dropdown-list-toggle "><a href="message.html"  class="nav-link  nav-link-lg "><span class="badge badge-danger nav-link-badge">0</span><i class="hvr-buzz fa fa-envelope-o"></i></a>
+                                
+                                    
+                            </li>
+
+                            <li class="dropdown dropdown-list-toggle"><a href="notification.html" class="nav-link  nav-link-lg "><span class="badge badge-secondary nav-link-badge">0</span><i class="fa fa-bell-o"></i></a>
+                               
+                            </li>
+                            <li class="dropdown dropdown-list-toggle d-none d-lg-block">
+                                <a href="#" class="nav-link nav-link-lg full-screen-link">
+                                    <i class="fa fa-expand " id="fullscreen-button"></i>
+                                </a>
+                            </li>
+                            <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg d-flex">
+                                    <span class="mr-3 mt-2 d-none d-lg-block ">
+                                        <span class="text-white">Hello,<span class="ml-1"> user</span></span>
+                                    </span>
+                                <span><img src="assets/img/avatar/avatar-3.jpg" alt="profile-user" class="rounded-circle w-32 mr-2"></span>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <div class=" dropdown-header noti-title text-center border-bottom pb-3">
+                                        <h5 class="text-capitalize text-dark mb-1">user</h5>
+                                        <small class="text-overflow m-0"> admin</small>
+                                    </div>
+                                    <a class="dropdown-item" href="profile.html"><i class="mdi mdi-account-outline mr-2"></i> <span>My profile</span></a>
+                                   
+                                    <a class="dropdown-item" href="#"><i class=" mdi mdi-message-outline mr-2"></i> <span>Mails</span></a>
+                                    
+                                    <a class="dropdown-item" href="#"><i class="mdi mdi-compass-outline mr-2"></i> <span>Support</span></a>
+                                    <div class="dropdown-divider"></div><a class="dropdown-item" href="login.html"><i class="mdi  mdi-logout-variant mr-2"></i> <span>Logout</span></a>
+                                </div>
+                            </li>
+                        </ul>
+                    </nav>
+                    <aside class="app-sidebar">
+                        <div class="app-sidebar__user">
+                            <div class="dropdown user-pro-body text-center">
+                                <div class="nav-link pl-1 pr-1 leading-none ">
+                                    <img src="assets/img/avatar/avatar-3.jpg" alt="user-img" class="avatar-xl rounded-circle mb-1">
+                                    <span class="pulse bg-success" aria-hidden="true"></span>
+                                </div>
+                                <div class="user-info">
+                                    <h6 class=" mb-1 text-dark">user</h6>
+                                    <span class="text-muted app-sidebar__user-name text-sm"> admin</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+                        <ul class="side-menu">
+                            <li class="slide">
+                                <a class="side-menu__item"  data-toggle="slide" href="#"><i class="side-menu__icon fa fa-laptop"></i><span class="side-menu__label">Dashboard</span><span class="angle fa fa-angle-right"></span></a>
+                                <ul class="slide-menu">
+                                   
+                                    <li><a class="slide-item" href="index2.html"><span>Social Dashboard</span></a></li>
+                                    <li><a class="slide-item" href="index3.html"><span>Marketing Dashboard</span></a></li>
+                                    
+                                </ul>
+                            </li>
+                            <li>
+                                <a class="side-menu__item" href="widgets.html"><i class="side-menu__icon fe fe-grid"></i><span class="side-menu__label">Widgets</span></a>
+                            </li>
+                            <li class="slide">
+                                <a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-envelope-o"></i><span class="side-menu__label">Mail</span><span class="badge badge-warning nav-badge">3</span></a>
+                                <ul class="slide-menu">
+                                    <li><a href="mailinbox.html" class="slide-item"> Mail-inbox</a></li>
+                                    <li><a href="mail-compose.html" class="slide-item"> Mail-Compose</a></li>
+                                    <li><a href="viewmail.html" class="slide-item"> View-Email</a></li>
+                                </ul>
+                            </li>
+                           
+                            
+                           
+                            <li class="slide">
+                                <a class="side-menu__item" href="message.html"><i class="side-menu__icon fa fa-edit"></i><span class="side-menu__label">Forms</span></a>
+                                
+                            </li>
+                            <li class="slide">
+                                <a class="side-menu__item"  href="message.html"><i class="side-menu__icon fa fa-bar-chart"></i>chart</a>
+                               
+                            </li>
+                            
+                            <li class="slide">
+                                <a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-truck"></i><span class="side-menu__label">delivery management</span><i class="angle fa fa-angle-right"></i></a>
+                                <ul class="slide-menu">
+                                    <li><a href="adddeleveyman.html" class="slide-item">add deliveryman</a></li>
+                                    <li><a href="removedeleveryman.php" class="slide-item">remove deliveryman</a></li>
+                                    <li><a href="showdeleryman.php" class="slide-item">show deliveryman</a></li>
+                                    <li><a href="editdelevryman.php" class="slide-item">edit deliveryman</a></li>
+                                    <li><a href="adddelevey.php" class="slide-item">add delivery</a></li>
+                                    <li><a href="removedelevery.php" class="slide-item">remove delivery</a></li>
+                                    <li><a href="showdelery.php" class="slide-item">show deliveryman</a></li>
+                                    <li><a href="editdelevry.php" class="slide-item">edit deliveryman</a></li>
+                                    
+                                </ul>
+                            </li>
+                            <li class="slide">
+                                 
+                                <a  class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fe fe-shopping-cart"></i><span class="side-menu__label">product</span><span class="angle fa fa-angle-right"></span></a>
+                                <ul class="slide-menu">
+                                    <li><a href="#" class="slide-item">add products</a></li>
+                                    <li><a href="#" class="slide-item">remove products</a></li>
+                                    <li><a href="#" class="slide-item">show products</a></li>
+                                    <li><a href="#" class="slide-item">edit products</a></li>
+                                    <li><a href="#" class="slide-item">add category</a></li>
+                                    <li><a href="#" class="slide-item">remove category</a></li>
+                                    <li><a href="#" class="slide-item">show category</a></li>
+                                    <li><a href="#" class="slide-item">edit category</a></li>
+                                    
+                                </ul>
+                            </li>
+                            <li class="slide">
+                                <a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-list-alt"></i><span class="side-menu__label">ordered management</span><i class="angle fa fa-angle-right"></i></a>
+                                <ul class="slide-menu">
+                                    
+                                    <li><a href="#" class="slide-item">remove ordered</a></li>
+                                    <li><a href="#" class="slide-item">show ordered</a></li>
+                                    <li><a href="#" class="slide-item">edit ordered</a></li>
+                                    <li><a href="#" class="slide-item">remove bill</a></li>
+                                    <li><a href="#" class="slide-item">show bill</a></li>
+                                    <li><a href="#" class="slide-item">edit bill</a></li>
+                                    
+                                </ul>
+                            </li>
+                            <li class="slide">
+                                <a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-calendar-check-o"></i><span class="side-menu__label">event and promotion </span><i class="angle fa fa-angle-right"></i></a>
+                                <ul class="slide-menu">
+                                    <li><a href="#" class="slide-item">add event</a></li>
+                                    <li><a href="#" class="slide-item">remove event</a></li>
+                                    <li><a href="#" class="slide-item">show event</a></li>
+                                    <li><a href="#" class="slide-item">edit event</a></li>
+                                    <li><a href="#" class="slide-item">add promotion</a></li>
+                                    <li><a href="#" class="slide-item">remove promotion</a></li>
+                                    <li><a href="#" class="slide-item">show promotion</a></li>
+                                    <li><a href="#" class="slide-item">edit promotion</a></li>
+                                    
+                                </ul>
+                            </li>
+                            <li class="slide">
+                                <a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon  fa fa-gift"></i><span class="side-menu__label">coupon management</span><i class="angle fa fa-angle-right"></i></a>
+                                <ul class="slide-menu">
+                                    <li><a href="#" class="slide-item">add coupon</a></li>
+                                    <li><a href="#" class="slide-item">remove coupon</a></li>
+                                    <li><a href="#" class="slide-item">show coupon</a></li>
+                                    <li><a href="#" class="slide-item">edit coupon</a></li>
+                                   
+                                    
+                                </ul>
+                            </li>
+                            <li class="slide">
+                                <a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-users"></i><span class="side-menu__label">show all client</span></a>
+                           
+                            <li class="slide">
+                                <a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-user-circle"></i><span class="side-menu__label">Custom Pages</span><i class="angle fa fa-angle-right"></i></a>
+                                <ul class="slide-menu">
+                                    <li><a href="register.html" class="slide-item"> Register</a></li>
+                                    <li><a href="login.html" class="slide-item"> Login</a></li>
+                                    <li><a href="forgot.html" class="slide-item"> Forgot Password</a></li>
+                                    <li><a href="reset.html" class="slide-item"> Reset Password</a></li>
+                                    <li><a href="under-construction.html" class="slide-item"> Under Construction</a></li>
+                                    <li><a href="lockscreen.html" class="slide-item"> Lock Screen</a></li>
+                                    <li><a href="404.html" class="slide-item"> 404</a></li>
+                                    <li><a href="505.html" class="slide-item"> 505</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </aside>     
+<!---------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+<!--app-content open-->
+ <div class="app-content">
+    <section class="section">
+
+        <!--page-header open-->
+        <div class="page-header">
+            <h4 class="page-title">add deleveryman</h4>
+            <ol class="breadcrumb">
+               
+            </ol>
+        </div>
+        <!--page-header closed-->
+
+        <!--row open-->
+        
+
+            <div class="col-lg-12 col-xl-6 col-md-12 col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>deleveryman</h4>
+                    </div>
+                    <div class="card-body">
+                        <form class="form-horizontal" method="POST" onsubmit="return verif()" action="ajoutLiveur.php">
+                            <div class="form-group row">
+                                <label class="col-md-3 col-form-label"><i class="fa fa-user"></i> first name</label>
+                                <div class="col-md-9">
+                                    <input class="form-control" type="text" name="prenom"id="prenom">
+                                </div>
+                            </div>
+                            
+                            
+                                <div class="form-group row">
+                                    <label class="col-md-3 col-form-label"><i class="fa fa-user"></i> last name</label>
+                                    <div class="col-md-9">
+                                        <input class="form-control" type="text" name="nom" id="nom">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group row">
+                                    <label class="col-md-3 col-form-label"> <i class="ion-card"></i> CIN</label>
+                                    <div class="col-md-9">
+                                        <input class="form-control" type="number" name="CIN" id="cin">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-md-3 col-form-label"><i class="ion-card"></i>  permit number </label>
+                                    <div class="col-md-3 col-form-label" >
+                                        <input class="form-control" type="number" name="Num_permis" id="num">
+                                        
+                                        
+                                    </div>
+                                </div>
+                                
+                            <div class="form-group row">
+                                <label class="col-md-3 col-form-label"><i class="fa fa-envelope "></i>  E-mail</label>
+                                <div class="col-md-9">
+                                    <input class="form-control" type="email" name="mail" id="mail">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                
+                                <label class="col-md-3 col-form-label" ><i class="fa fa-calendar"></i> Date of Birth</label>
+                                
+                                <div class="col-md-9">
+                                    
+                                    <input class="form-control" type="date" id="date" name="date">
+                                </div>
+                            </div>
+                     						<div class="form-group row">
+                                <label class="col-md-3 col-form-label" placeholder="numéro Tel"><i class="fa fa-phone"></i>  phone number</label>
+                                <div class="col-md-9">
+                                    <input class="form-control" type="tel" name="tel" id="tel" >
+                                </div>
+                            </div>
+                            <div class="form-group row mb-0">
+                                <label class="col-md-3 col-form-label"><i class="flag flag-tn"></i>  region</label>
+                                <div class="col-md-9">
+                                    <select class="form-control"  name="secteur" type="text" id="secteur" valeur=""   >
+                                        <option></option>
+                                        <option>Ariana</option>
+                                        <option>Beja</option>
+                                        <option>Ben Arous</option>
+                                        <option>Bizerte</option>
+                                        <option>Gabes</option>
+                                        <option>Gafsa</option>
+                                        <option>Jenbouda</option>
+                                        <option>Kairouan</option>
+                                        <option>Kasserine</option>
+                                        <option>Kef</option>
+                                        <option>Mahdiya</option>
+                                        <option>Manouba</option>
+                                        <option>Medenine</option>
+                                        <option>Monastir</option>
+                                        <option>Nabeul</option>
+                                        <option>Sfax</option>
+                                        <option>Sidi Bouzid</option>
+                                        <option>Siliana</option>
+                                        <option>Sousse</option>
+                                        <option>Tatouine</option>
+                                        <option>Tozeur</option>
+                                        <option>Tunis</option>
+                                        <option>Zaghouan</option>
+                                    
+                                    </select>
+                                </div>
+                            </div>
+                            <input type="submit" class="btn btn-primary mt-1 mb-0"  name="submit" value="submit"></td>
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        
+    </section>
+</div>
+
+
+<!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+        <!--Jquery.min js-->
+		<script src="assets/js/jquery.min.js"></script>
+
+		<!--popper js-->
+		<script src="assets/js/popper.js"></script>
+
+		<!--Tooltip js-->
+		<script src="assets/js/tooltip.js"></script>
+
+		<!--Bootstrap.min js-->
+		<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+		<!-- Jquery star rating-->
+		<script src="assets/plugins/rating/jquery.rating-stars.js"></script>
+
+		<!--Jquery.nicescroll.min js-->
+		<script src="assets/plugins/nicescroll/jquery.nicescroll.min.js"></script>
+
+		<!--Scroll-up-bar.min js-->
+		<script src="assets/plugins/scroll-up-bar/dist/scroll-up-bar.min.js"></script>
+
+		<!--mCustomScrollbar js-->
+		<script src="assets/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js"></script>
+
+		<!--Sidemenu js-->
+		<script src="assets/plugins/toggle-menu/sidemenu.js"></script>
+
+		<!--Scripts js-->
+		<script src="assets/js/scripts.js"></script>
+		<script src="assets/js/accordiation.js"></script>
+		<script src="assets/js/jquery.showmore.js"></script>
+
+	</body>
+
+<!-- Mirrored from www.spruko.com/demo/splite/faq.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 10 Feb 2019 18:35:02 GMT -->
+</html>
