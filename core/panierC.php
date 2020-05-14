@@ -17,9 +17,17 @@ public	function ajouterpanier($panier,$quantite){
 	}
 }
 
-function afficherpanier($idproduit,$quantite){
-	echo "idproduit: ".$idproduit->getidproduit()."<br>";
-	echo "quantite: ".$quantite->getquantite()."<br>";
+function afficherpanierdansajout($idproduit){
+	$sql="SELECT quantite FROM panier where idproduit=$idproduit";
+	$db = config::getConnexion();
+	try{
+		$liste=$db->query($sql);
+		if ($liste) return $liste;
+		else return 0;
+    }
+    catch (Exception $e){
+	echo 'Erreur: '.$e->getMessage();
+	}
 }
 
 function afficherpanierA(){
@@ -37,7 +45,7 @@ function afficherpanierA(){
 }
 
 function supprimerpanier($idproduit){
-	$sql="DELETE FROM panier where idproduit= :idproduit";
+	$sql="DELETE FROM panier where idproduit = :idproduit";
 	$db = config::getConnexion();
 	$req=$db->prepare($sql);
 	$req->bindValue(':idproduit',$idproduit);
