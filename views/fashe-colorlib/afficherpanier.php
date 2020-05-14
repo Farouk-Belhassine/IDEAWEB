@@ -14,8 +14,13 @@
 
 	$pC=new panierC();
 	$nombreitem=$pC->nombreitem();
+	foreach ($nombreitem as $rowni){
+		if($rowni[0]) $ni=$rowni[0];
+		else $ni=0;
+	}
 	$mylist=$pC->afficherpanierA();
 	$prixtotal=$pC->totalpanier();
+	foreach ($prixtotal as $rowpt) $pt=$rowpt[0];
 ?>
 <body class="animsition">
 	<header class="header1">
@@ -40,11 +45,6 @@
 						</ul>
 					</nav>
 				</div>
-				<?PHP
-				foreach ($nombreitem as $row){
-				if($row[0]) $ni=$row[0];
-				else $ni=0;
-				?>
 				<!-- Header Icon -->
 				<div class="header-icons">
 					<div class="header-wrapicon2">
@@ -54,7 +54,6 @@
 						</form>
 					</div>
 				</div>
-				<?php } ?>
 			</div>
 		</div>
 	</header>
@@ -108,22 +107,14 @@
 			<div class="flex-w flex-sb-m p-t-25 p-b-25 bo8 p-l-35 p-r-60 p-lr-15-sm">
 				<div class="flex-w flex-m w-full-sm">
 					<div class="size11 bo4 m-r-10">
-						<input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="coupon-code" placeholder="Coupon Code">
+						<input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="coupon-code" placeholder="Code coupon si vous l'avez">
 					</div>
 
 					<div class="size12 trans-0-4 m-t-10 m-b-10 m-r-10">
 						<!-- Button -->
-						<form><button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
-							Appliquer coupon
-						</button></form>
-						
-					</div>
-					<div class="size12 trans-0-4 m-t-10 m-b-10 m-r-10">
-						<!-- Button -->
 						<form action="passercommande.php"><button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
-							Passer commande
+							Appliquer coupon et/ou passer commande
 						</button></form>
-						
 					</div>
 				</div>
 			</div>

@@ -1,14 +1,24 @@
 <?php
-include 'D:/apps/wamp64/www/sitweb/entities/panier.php';
-include 'D:/apps/wamp64/www/sitweb/core/panierC.php';
+include '../../entities/panier.php';
+include '../../core/panierC.php';
+
+
 
 if( isset($_POST['idproduit']) ){
-$panier=new panier($_POST['idproduit'],1);
 $panierC=new panierC();
-$panierC->ajouterpanier($panier);
-header('Location: afficherpanier.php');
+$mylist=$panierC->afficherpanierdansajout($_POST['idproduit']);
+if(!empty($mylist)){
+	foreach ($mylist as $row){
+	$ne=$row[0];
+	$ni=(int)$ne;
+	$ni=$ni+1;
+	}
 }
-else{
-   echo "vérifier les champs";
+else $ni=1;
+	$panier=new panier($_POST['idproduit'],$ni);
+	$panierC->supprimerpanier($_POST['idproduit']);
+	$panierC->ajouterpanier($panier,$ni);
+	header('Location: afficherpanier.php');
 }
+else echo "vérifier les champs";
 ?>
