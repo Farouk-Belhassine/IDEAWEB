@@ -2,19 +2,24 @@
   
    include "C:/xampp/htdocs/siteweb/config.php" ;
  
-   class avisC 
+   class CompteC 
    {
    	
-   	public function ajouter($avis) 
+   	public function ajouter($compte) 
    	{
-   		$sql="insert into avis(cin_client,reclamation) values(:cin_client,:reclamation)" ;
+   		$sql="insert into compte(E_mail,mdp,cin_client,nom,prenom,adresse,numero,type) values(:E_mail,:mdp,:cin_client,:nom,:prenom,:adresse,:numero,:type)" ;
    		$db=config::getConnexion() ;
    		$req=$db->prepare($sql) ;
    		try
    		{
-   			
-   			$req->bindValue(':cin_client',$avis->getcin_client());
-   			$req->bindValue(':reclamation',$avis->getreclamation());
+   			$req->bindValue(':E_mail',$compte->getE_mail());
+   			$req->bindValue(':mdp',$compte->getmdp());
+   			$req->bindValue(':cin_client',$compte->getcin_client());
+   			$req->bindValue(':nom',$compte->getnom());
+   			$req->bindValue(':prenom',$compte->getprenom());
+        $req->bindValue(':adresse',$compte->getadresse());
+        $req->bindValue(':numero',$compte->getnumero());
+        $req->bindValue(':type',$compte->gettype());
    			$req->execute() ;
    			return true ;
 
@@ -26,7 +31,7 @@
          
          public function afficher()
          {
-            $sql="select * from avis ";
+            $sql="select * from compte ";
          $db=config::getConnexion();
          try
          {
@@ -41,7 +46,7 @@
    
     public function supprimer($cin_client)
          {
-            $sql="delete from avis where cin_client= :cin_client";
+            $sql="delete from compte where cin_client= :cin_client";
          $db=config::getConnexion();
          $req=$db->prepare($sql);
          $req->bindValue(':cin_client',$cin_client);
@@ -53,7 +58,7 @@
          {echo "Erreur".$e->getMessage();
       }
     }
-/*
+
     function modifier($compte,$cin_client){
     $sql="UPDATE compte SET E_mail=:E_mail,  mdp=:mdp, cin_client=:cin_client1 , nom=:nom,prenom=:prenom,adresse=:adresse,numero=:numero,type=:type WHERE compte.cin_client=:cin_client";
     
@@ -103,7 +108,7 @@ try{
         catch (Exception $e){
             die('Erreur: '.$e->getMessage());
         }
-  }*/
+  }
 
 
 }
