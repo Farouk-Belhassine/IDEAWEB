@@ -10,11 +10,14 @@ include 'dbconfig.php';
   	function __construct($cin_client,$reclamation)
   	{
 
-  		
+  		//$this->E_mail=$E_mail;
   		$this->cin_client=$cin_client;
-  		
+  		//$this->cin_client=$cin_client ;
   		$this->reclamation=$reclamation;
-  		
+  		//$this->prenom=$prenom;
+      //$this->adresse=$adresse;
+      //$this->numero=$numero;
+      //$this->type=$type;
       
 
   	}
