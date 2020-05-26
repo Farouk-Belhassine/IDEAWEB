@@ -3,65 +3,72 @@
 </head>
 <body>
 <?PHP
-include "C:/xampp/htdocs/siteweb/entities/compte.php";
-include "C:/xampp/htdocs/siteweb/core/compteC.php";
-if (isset($_GET['cin_client'])){
-	$compteC=new compteC();
-    $result=$compteC->recuperer($_GET['cin_client']);
+include 'C:/wamp64/www/projet_web/entities/produit.php';
+include 'C:/wamp64/www/projet_web/core/produitC.php';
+if (isset($_GET['idproduit'])){
+	$pC=new produitC();
+    $result=$pC->recupererproduit($_GET['idproduit']);
 	foreach($result as $row){
-		$E_mail=$row['E_mail'];
-		$mdp=$row['mdp'];
-		$cin_client=$row['cin_client'];
-		$nom=$row['nom'];
-		$prenom=$row['prenom'];
-		$adresse=$row['adresse'];
-		$numero=$row['numero'];
-		$type=$row['type'];
+		$idproduit=$row['idproduit'];
+		$Libelle=$row['Libelle'];
+		$Sexe=$row['Sexe'];
+		$Prix=$row['Prix'];
+		$Taille=$row['Taille'];
+		$urlImage=$row['urlImage'];
+		$quantite=$row['quantite'];
+		$description=$row['description'];
+
 ?>
+
 <form method="POST">
-<table border="10">
-<caption>Modifier</caption>
+<table>
+<caption>Modifier produit</caption>
 <tr>
-<td>E_mail</td>
-<td><input type="email" name="E_mail" value="<?PHP echo $E_mail ?>"></td>
+<td>idproduit</td>
+<td><input type="text" name="idproduit" value="<?PHP echo $idproduit ?>"></td>
 </tr>
 <tr>
-<td>mdp</td>
-<td><input type="password" name="mdp" value="<?PHP echo $mdp ?>"></td>
+<td>Libelle</td>
+<td><input type="text" name="Libelle" value="<?PHP echo $Libelle ?>"></td>
 </tr>
 <tr>
-<td>cin_client</td>
-<td><input type="text" name="cin_client" value="<?PHP echo $cin_client ?>"></td>
-</tr>
-<tr>
-<td>nom</td>
-<td><input type="text" name="nom" value="<?PHP echo $nom ?>"></td>
-</tr>
-<tr>
-<td>prenom</td>
-<td><input type="text" name="prenom" value="<?PHP echo $prenom ?>"></td>
-</tr>
-<tr>
-<td>adresse</td>
-<td><input type="text" name="adresse" value="<?PHP echo $adresse ?>"></td>
-</tr>
-<tr>
-<td>numero</td>
-<td><input type="text" name="numero" value="<?PHP echo $numero ?>"></td>
-</tr>
-<tr>
-<td>type</td>
-<td><input type="text" name="type" value="<?PHP echo $type ?>"></td>
-</tr>
+<td>Sexe</td>
 
+										<tr>
+										<td><input type="checkbox" name="Sexe" value="FEMME">FEMME</td>
+       									 <td><input type="checkbox" name="Sexe" value="HOMME">HOMME</td>
+       									 <td><input type="checkbox" name="Sexe" value="ENFANT">ENFANT</td></tr>
+<tr>
+<td> prix</td>
+<td><input type="number" name="Prix" value="<?PHP echo $Prix ?>"></td>
+</tr>
+<tr>
+<td> Taille</td>
+<tr><td><input type="checkbox" name="Taille" value="M">M</td>
+  <td><input type="checkbox" name="Taille" value="S">S</td>
+ <td><input type="checkbox" name="Taille" value="L">L</td></tr></tr>
+<tr>
+  <td>Select image to upload:</td>
+ <td> <form action="upload.php" method="post" enctype="multipart/form-data">
+<input type="file" name="urlImage" value="<?PHP echo $urlImage ?>"></td>
+    </form></tr>
 
+<tr>
+<td> quantite</td>
+<td><input type="number" name="quantite" value="<?PHP echo $quantite ?>"></td>
+
+</tr>
+<tr>
+<td> description</td>
+<td><input type="text" name="description" value="<?PHP echo $description ?>"></td>
+</tr>
 <tr>
 <td></td>
 <td><input type="submit" name="modifier" value="modifier"></td>
 </tr>
 <tr>
-
-<td><input type="hidden" name="cin_client11" value="<?PHP echo $_GET['cin_client'];?>"></td>
+<td></td>
+<td><input type="hidden" name="idproduit1" value="<?PHP echo $_GET['idproduit'];?>"></td>
 </tr>
 </table>
 </form>
@@ -69,11 +76,12 @@ if (isset($_GET['cin_client'])){
 	}
 }
 if (isset($_POST['modifier'])){
-	$compte=new compte($_POST['E_mail'],$_POST['mdp'],$_POST['cin_client'],$_POST['nom'],$_POST['prenom'],$_POST['adresse'],$_POST['numero'],$_POST['type']);
-	$compteC->modifier($compte,$_POST['cin_client11']);
-	//echo $_POST['cin_client11'];
-	header('Location: test_afficher.php');
+	$produit=new produit($_POST['idproduit'],$_POST['Libelle'],$_POST['Sexe'],$_POST['Prix'],$_POST['Taille'],$_POST['urlImage'],$_POST['quantite'],$_POST['description']);
+	$pC->modifierproduit($produit,$_POST['idproduit1']);
+	//echo $_POST['idproduit1'];
+	//header('Location: afficher.php');
 }
+
 ?>
 </body>
 </HTMl>

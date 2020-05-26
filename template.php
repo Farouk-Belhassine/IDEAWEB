@@ -125,13 +125,12 @@
                                  
                                 <a  class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fe fe-shopping-cart"></i><span class="side-menu__label">product</span><span class="angle fa fa-angle-right"></span></a>
                                 <ul class="slide-menu">
-                                    <li><a href="#" class="slide-item">add products</a></li>
-                                    <li><a href="#" class="slide-item">remove products</a></li>
-                                    <li><a href="#" class="slide-item">show products</a></li>
-                                    <li><a href="#" class="slide-item">edit products</a></li>
-                                    <li><a href="#" class="slide-item">add category</a></li>
+                                    <li><a href="index.php" class="slide-item">add products</a></li>
+                                   
+                                    <li><a href="afficher.php" class="slide-item">show products</a></li>
+                                    <li><a href="fajoutcateg.php" class="slide-item">add category</a></li>
                                     <li><a href="#" class="slide-item">remove category</a></li>
-                                    <li><a href="#" class="slide-item">show category</a></li>
+                                    <li><a href="affichercategorie.php" class="slide-item">show category</a></li>
                                     <li><a href="#" class="slide-item">edit category</a></li>
                                     
                                 </ul>

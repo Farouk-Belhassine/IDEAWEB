@@ -1,11 +1,12 @@
 <?PHP
-include 'C:/xampp/htdocs/siteweb/entities/compte.php';
-include "C:/xampp/htdocs/siteweb/core/compteC.php";
-$cC=new compteC();
-if (isset($_POST["cin_client"]))
+include 'C:/wamp64/www/projet_web/entities/produit.php';
+include 'C:/wamp64/www/projet_web/core/produitC.php';
+
+$pC=new produitC();
+if (isset($_POST["idproduit"]))
 {
-	$cC->supprimer($_POST["cin_client"]);
-	header('Location: test_afficher.php');
+	$pC->supprimer($_POST["idproduit"]);
+	header('Location: afficher.php');
 }
 
 ?>
