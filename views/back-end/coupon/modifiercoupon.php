@@ -1,3 +1,11 @@
+<?php
+if ( isset($_POST['num']) and isset($_POST['date_creation']) ){
+	$num=$_POST['num'];
+	$date_creation=$_POST['date_creation'];
+}
+else echo "valabilite: ${_POST['valabilite']}| taux_reduction: ${_POST['taux_reduction']}| num: ${_POST['num']}| date_creation: ${_POST['date_creation']}"
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,17 +67,17 @@
 													</select>
 												</div>
 											</div>
-											<?php
-												if ( isset($_POST['valabilite']) and isset($_POST['taux_reduction']) ){
-													$valabilite=$_POST['valabilite'];
-													$taux_reduction=$_POST['taux_reduction'];
-													header('Location: modifiercouponfunction.php');
-												}
-											?>
-									         <form method="GET" action="modifiercouponfunction.php"><input class="btn btn-primary btn-block" type="submit"  name="modifier" value="modifier"></form>
+									         <input class="btn btn-primary btn-block" type="submit"  name="modifier" value="modifier">
+									         <input class="form-control" id="num" type="hidden" name="num" value="<?php echo $_POST['num'];?>">
+											<input class="form-control" id="date_creation" type="hidden" name="date_creation" value="<?php echo $_POST['date_creation'];?>">
+										</form>
 									</div>
 								</div>
 							</div>
+						</div>
+					</section>
+				</div>
+			</form>
 		<script src="assets/js/jquery.min.js"></script>
 		<script src="assets/js/popper.js"></script>
 		<script src="assets/js/tooltip.js"></script>

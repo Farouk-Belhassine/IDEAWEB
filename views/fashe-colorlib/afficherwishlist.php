@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-	<title>Panier</title>
+	<title>Wishlist</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" type="image/png" href="images/icons/favicon.png"/>
@@ -9,18 +9,13 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <?php
-	include '../../entities/panier.php';
-	include '../../core/panierC.php';
+	include '../../entities/wishlist.php';
+	include '../../core/wishlistC.php';
 
-	$pC=new panierC();
-	$nombreitem=$pC->nombreitem();
-	foreach ($nombreitem as $rowni){
-		if($rowni[0]) $ni=$rowni[0];
-		else $ni=0;
-	}
-	$mylist=$pC->afficherpanierA();
-	$prixtotal=$pC->totalpanier();
-	foreach ($prixtotal as $rowpt) $pt=$rowpt[0];
+	session_start();
+
+	$wC=new wishlistC();
+	$mylist=$wC->afficherwishlist($_SESSION['c']);
 ?>
 <body class="animsition">
 	<header class="header1">
@@ -55,72 +50,32 @@
 					<div class="header-wrapicon2">
 						<img src="images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
 						<form method="POST" action="product.php">
-							<span class="header-icons-noti"><?php echo $ni;?></span>
+							<span class="header-icons-noti">0</span>
 						</form>
 					</div>
 				</div>
 			</div>
 		</div>
 	</header>
-	<section class="bg-title-page p-t-40 p-b-50 flex-col-c-m" style="background-image: url(images/heading-pages-01.jpg);">
+	<!--<section class="bg-title-page p-t-40 p-b-50 flex-col-c-m" style="background-image: url(images/heading-pages-01.jpg);">
 		<h2 class="l-text2 t-center">
 			Cart
 		</h2>
-	</section>
+	</section>-->
 
 	<!-- Cart -->
 	<section class="cart bgwhite p-t-70 p-b-100">
 		<div class="container">
 			<!-- Cart item -->
+			
 			<div class="container-table-cart pos-relative">
 				<div class="wrap-table-shopping-cart bgwhite">
 					<table class="table-shopping-cart">
-						<tbody id="myTable2">
 						<tr class="table-head">
 							<th class="column-1"></th>
-							<th class="column-2" onclick="sortTable(0)">Produit</th>
-							<th class="column-3" onclick="sortTable(1)">Prix</th>
-							<th class="column-3" onclick="sortTable(2)">quantité</th>
-							<th class="column-3" onclick="sortTable(3)">sous-total</th>
-						</tr>
-						<script>
-function sortTable(n) {
-  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-  table = document.getElementById("myTable2");
-  switching = true;
-  dir = "asc";
-  while (switching) {
-    switching = false;
-    rows = table.rows;
-    for (i = 1; i < (rows.length - 1); i++) {
-      shouldSwitch = false;
-      x = rows[i].getElementsByTagName("TD")[n];
-      y = rows[i + 1].getElementsByTagName("TD")[n];
-      if (dir == "asc") {
-        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-          shouldSwitch = true;
-          break;
-        }
-      } else if (dir == "desc") {
-        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-          shouldSwitch = true;
-          break;
-        }
-      }
-    }
-    if (shouldSwitch) {
-      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-      switching = true;
-      switchcount ++;
-    } else {
-      if (switchcount == 0 && dir == "asc") {
-        dir = "desc";
-        switching = true;
-      }
-    }
-  }
-}
-								</script>
+							<th class="column-2">Produit</th>
+							<th class="column-3">Prix actuel</th>
+						</tr>  
 									<?PHP
 			foreach ($mylist as $row) {
 			?>  
@@ -132,32 +87,22 @@ function sortTable(n) {
 							</td>
 							<td class="column-2"><?PHP echo $row['description']; ?></td>
 							<td class="column-3"><?PHP echo $row['Prix']; ?>DT</td>
-							<td class="column-3"><?PHP echo $row['quantite']; ?></td>
-							<td class="column-3"><?PHP echo $row['prixtotal']; ?></td>
 							<div class="size12 trans-0-4 m-t-10 m-b-10 m-r-10">
 								<td>
-									<form method="POST" action="supprimerdupanier.php">
-										<input class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4" type="submit"  name="supprimer" value="supprimer">
+									<form method="POST" action="supprimerduwishlist.php">
 										<input type="hidden" value="<?PHP echo $row['idproduit']; ?>"name="idproduit">
+										<input class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" type="submit" name="supprimer" value="supprimer">
+									</form><br>
+									<form method="POST" action="ajouterpanier.php">
+										<input type="hidden" value="<?PHP echo $row['idproduit']; ?>"name="idproduit">
+										<input class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" type="submit" name="ajouterpanier" value="Add to Cart">
 									</form>
 								</td>
 								<?php } ?>
-								</tbody>
 							</td>
 						</div>
 					</tr>
 					</table>
-				</div>
-			</div>
-
-			<div class="flex-w flex-sb-m p-t-25 p-b-25 bo8 p-l-35 p-r-60 p-lr-15-sm">
-				<div class="flex-w flex-m w-full-sm">
-					<div class="size11 bo4 m-r-10">
-						<form method="POST" action="passercommande.php">
-							<input class="sizefull s-text7 p-l-22 p-r-22" type="text" id="num" name="num" placeholder="Code coupon si vous l'avez">
-							<input class="flex-c-m size2 bg4 bo-rad-23 hov1 m-text3 trans-0-4" type="submit" value="passer commande">
-						</form>
-					</div>
 				</div>
 			</div>
 		</div>

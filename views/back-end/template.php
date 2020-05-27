@@ -1,4 +1,8 @@
+<?php
+    session_start();
 
+    if($_SESSION['ty']!="admin") header('Location: ../../fashe-colorlib/session.html');
+?>
     
     <div class="wave -three"></div>
     
@@ -40,21 +44,21 @@
                             </li>
                             <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg d-flex">
                                     <span class="mr-3 mt-2 d-none d-lg-block ">
-                                        <span class="text-white">Hello,<span class="ml-1"> user</span></span>
+                                        <span class="text-white">Hello,<span class="ml-1"><?php echo $_SESSION['n'];?></span></span>
                                     </span>
                                 <span><img src="assets/img/avatar/avatar-3.jpg" alt="profile-user" class="rounded-circle w-32 mr-2"></span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <div class=" dropdown-header noti-title text-center border-bottom pb-3">
-                                        <h5 class="text-capitalize text-dark mb-1">user</h5>
-                                        <small class="text-overflow m-0"> admin</small>
+                                        <h5 class="text-capitalize text-dark mb-1"><?php echo $_SESSION['n'];?></h5>
+                                        <small class="text-overflow m-0"><?php echo $_SESSION['ty'];?></small>
                                     </div>
                                     <a class="dropdown-item" href="profile.html"><i class="mdi mdi-account-outline mr-2"></i> <span>My profile</span></a>
                                    
                                     <a class="dropdown-item" href="#"><i class=" mdi mdi-message-outline mr-2"></i> <span>Mails</span></a>
                                     
                                     <a class="dropdown-item" href="#"><i class="mdi mdi-compass-outline mr-2"></i> <span>Support</span></a>
-                                    <div class="dropdown-divider"></div><a class="dropdown-item" href="login.html"><i class="mdi  mdi-logout-variant mr-2"></i> <span>Logout</span></a>
+                                    <div class="dropdown-divider"></div><a class="dropdown-item" href="../../fashe-colorlib/logout.php" onclick=""><i class="mdi  mdi-logout-variant mr-2"></i> <span>Logout</span></a>
                                 </div>
                             </li>
                         </ul>
@@ -67,8 +71,8 @@
                                     <span class="pulse bg-success" aria-hidden="true"></span>
                                 </div>
                                 <div class="user-info">
-                                    <h6 class=" mb-1 text-dark">user</h6>
-                                    <span class="text-muted app-sidebar__user-name text-sm"> admin</span>
+                                    <h6 class=" mb-1 text-dark"><?php echo $_SESSION['n'];?></h6>
+                                    <span class="text-muted app-sidebar__user-name text-sm"><?php echo $_SESSION['ty'];?></span>
                                 </div>
                             </div>
                         </div>
@@ -137,8 +141,9 @@
                             <li class="slide">
                                 <a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon  fa fa-gift"></i><span class="side-menu__label">coupon management</span><i class="angle fa fa-angle-right"></i></a>
                                 <ul class="slide-menu">
-                                    <li><a href="../ajoutercoupon.php" class="slide-item">add coupon</a></li>
+                                    <li><a href="../coupon/ajoutcoupon.php" class="slide-item">add coupon</a></li>
                                     <li><a href="../coupon/affichercoupon.php" class="slide-item">show coupon</a></li>
+                                    <li><a href="../coupon/statistiquescoupon.php" class="slide-item">statistiques</a></li>
                                 </ul>
                             </li>
                             <li class="slide">
@@ -158,21 +163,4 @@
                                 </ul>
                             </li>
                         </ul>
-                    </aside>     
-                    
-<!---------------------------------------------------------------------------------------------------------------------------------------------------------------------->
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
-       
+                    </aside>

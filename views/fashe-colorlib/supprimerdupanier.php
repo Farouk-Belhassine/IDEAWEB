@@ -4,20 +4,15 @@ include '../../core/panierC.php';
 
 if (isset($_POST["idproduit"])){
 	$panierC=new panierC();
-	$mylist=$panierC->afficherpanierdansajout($_POST['idproduit']);
-	if(!empty($mylist)){
-		foreach ($mylist as $row){
-		$ne=$row[0];
-		$ni=(int)$ne;
-		$ni=$ni-1;
-		if($ni==0) $panierC->supprimerpanier($_POST['idproduit']);
+	$nombreitem=$panierC->quantiteitem($_POST['idproduit']);
+		$nombreitem-=1;
+		if($nombreitem==0) $panierC->supprimerpanier($_POST['idproduit']);
 		else{
-			$panier=new panier($_POST['idproduit'],$ni);
+			$prixitem=$panierC->prixitem($_POST['idproduit']);
+			$panier=new panier($_POST['idproduit'],$nombreitem,($prixitem*$nombreitem));
 			$panierC->supprimerpanier($_POST['idproduit']);
-			$panierC->ajouterpanier($panier,$ni);
-		}
+			$panierC->ajouterpanier($panier,$nombreitem,($prixitem*$nombreitem));
 		}
 	}
 	header('Location: afficherpanier.php');
-}
 ?>

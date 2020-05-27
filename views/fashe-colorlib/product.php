@@ -1,3 +1,8 @@
+<!--<script type="text/javascript">
+	function wishlist($idproduit){
+		window.location.href = "afficherwishlist.php";
+	}
+</script>-->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -5,66 +10,28 @@
 	<title>Product</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->
 	<link rel="icon" type="image/png" href="images/icons/favicon.png"/>
-<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
-<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="fonts/themify/themify-icons.css">
-<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
-<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="fonts/elegant-font/html-css/style.css">
-<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
-<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
-<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/slick/slick.css">
-<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/noui/nouislider.min.css">
-<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
-<!--===============================================================================================-->
 </head>
 <body class="animsition">
-
-	<!-- Header -->
 	<header class="header1">
-		<!-- Header desktop -->
 		<div class="container-menu-header">
 			<div class="topbar">
-				<div class="topbar-social">
-					<a href="#" class="topbar-social-item fa fa-facebook"></a>
-					<a href="#" class="topbar-social-item fa fa-instagram"></a>
-					<a href="#" class="topbar-social-item fa fa-pinterest-p"></a>
-					<a href="#" class="topbar-social-item fa fa-snapchat-ghost"></a>
-					<a href="#" class="topbar-social-item fa fa-youtube-play"></a>
-				</div>
-
 				<span class="topbar-child1">
-					Free shipping for standard order over $100
+					Livraison gratuite a partir de 280dt
 				</span>
-
-				<div class="topbar-child2">
-					<span class="topbar-email">
-						fashe@example.com
-					</span>
-
-					<div class="topbar-language rs1-select2">
-						<select class="selection-1" name="time">
-							<option>USD</option>
-							<option>EUR</option>
-						</select>
-					</div>
-				</div>
 			</div>
 
 			<div class="wrap_header">
@@ -83,7 +50,7 @@
 							</li>
 
 							<li>
-								<a href="product.html">Shop</a>
+								<a href="product.php">Shop</a>
 							</li>
 
 							
@@ -92,7 +59,7 @@
 							</li>
 
 							<li>
-								<a href="blog.html">Blog</a>
+								<a href="afficherpanier.php">Panier</a>
 							</li>
 
 							<li>
@@ -517,8 +484,6 @@
 
 				<div class="col-sm-6 col-md-8 col-lg-9 p-b-50">
 <?php
-/*include 'D:/apps/wamp64/www/sitweb/entities/produit.php';
-include 'D:/apps/wamp64/www/sitweb/core/produitC.php';*/
 include 'D:/apps/wamp64/www/sitweb/entities/promotion.php';
 include 'D:/apps/wamp64/www/sitweb/core/promotionC.php';
  
@@ -551,12 +516,13 @@ foreach ($mylist1 as $row) {
 										<h3 class="block2-newprice m-text8 p-r-5"><?PHP echo $row['Prix']*(100-$row['reduction'])/100;  ?>DT</h3>
 										<p><?PHP echo $row['duree'];  ?> jours</p>
 
-										
-											<div class="block2-overlay trans-0-4">
-										<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-											<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-											<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-										</a>
+									<div class="block2-overlay trans-0-4">
+										<!--<a href="javascript:swal('test','added to wishlist !', 'success');" class="block2-btn-addwishlist hov-pointer trans-0-4">
+											<form method="POST" action="ajouterwishlist.php">
+												<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
+												<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
+											</form>
+										</a>-->
 
 										<div class="block2-btn-addcart w-size1 trans-0-4">
 											<!-- Button -->
@@ -567,7 +533,11 @@ foreach ($mylist1 as $row) {
 										</div>
 									</div>
 								</div>
-										</div>
+								<form method="POST" action="ajouterwishlist.php">
+									<input type="hidden" value="<?PHP echo $row['id_produit']; ?>"name="idproduit">
+									<input class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" type="submit" name="ajouterwishlist" value="Wish it!">
+								</form>
+							</div>
 								
 
 								<div class="block2-txt p-t-20">
@@ -590,25 +560,29 @@ foreach ($mylist2 as $row) {
 								<div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnothing">
 									<img  src="images/<?php echo $row['urlImage'] ;  ?>" alt="IMG-PRODUCT">
 									<h2><?PHP echo $row['Prix']; ?>DT</h2>
-										<p><?PHP echo $row['Libelle']; ?></p>
-										<div class="block2-overlay trans-0-4">
-										<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
+									<p><?PHP echo $row['Libelle']; ?></p>
+									<div class="block2-overlay trans-0-4">
+										<a href="javascript:swal(Product','added to wishlist !', 'success');" class="block2-btn-addwishlist hov-pointer trans-0-4">
 											<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
 											<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
 										</a>
 										<div class="block2-btn-addcart w-size1 trans-0-4">
 											<form method="POST" action="ajouterpanier.php">
-											<input type="hidden" value="<?PHP echo $row['id_produit']; ?>"name="idproduit">
+											<input type="hidden" value="<?PHP echo $row['idproduit']; ?>"name="idproduit">
 											<input class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" type="submit" name="ajouterpanier" value="Add to Cart">
 											</form>
 										</div>
 									</div>
-							</div></div> 
-								<div class="block2-txt p-t-20">
-									<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
-									</a>
 								</div>
+								<form method="POST" action="ajouterwishlist.php">
+									<input type="hidden" value="<?PHP echo $row['idproduit']; ?>"name="idproduit">
+									<input class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" type="submit" name="ajouterwishlist" value="Wish it!">
+								</form>
+							</div> 
+							<div class="block2-txt p-t-20">
+								<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5"></a>
 							</div>
+						</div>
 							<?php } ?>
 
 							<?PHP
@@ -623,19 +597,24 @@ foreach ($mylist3 as $row) {
 										<p><?PHP echo $row['Libelle']; ?></p>
 										<p>category: <?PHP echo $row['nom_categorie']; ?></p>
 										<div class="block2-overlay trans-0-4">
-										<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
+										<a href="javascript:swal(Product','added to wishlist !', 'success');" class="block2-btn-addwishlist hov-pointer trans-0-4">
 											<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
 											<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
 										</a>
 
 										<div class="block2-btn-addcart w-size1 trans-0-4">
-											
-											<button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-												Add to Cart
-											</button>
+											<form method="POST" action="ajouterpanier.php">
+											<input type="hidden" value="<?PHP echo $row['ID_categorie']; ?>"name="idproduit">
+											<input class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" type="submit" name="ajouterpanier" value="Add to Cart">
+											</form>
 										</div>
 									</div>
-							</div></div> 
+								</div>
+								<form method="POST" action="ajouterwishlist.php">
+									<input type="hidden" value="<?PHP echo $row['ID_categorie']; ?>"name="idproduit">
+									<input class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" type="submit" name="ajouterwishlist" value="Wish it!">
+								</form>
+							</div> 
 
 
 								<div class="block2-txt p-t-20">
@@ -675,7 +654,7 @@ foreach ($mylist3 as $row) {
 
 				<div>
 					<p class="s-text7 w-size27">
-						Any questions? Let us know in store at Mannouba  on  (+216)29473297.
+						Any questions? Let us know in store at Mannouba on (+216)29473297.
 					</p>
 
 					<div class="flex-m p-t-30">
@@ -880,14 +859,14 @@ foreach ($mylist3 as $row) {
 		$('.block2-btn-addcart').each(function(){
 			var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
 			$(this).on('click', function(){
-				swal(nameProduct, "is added to cart !", "success");
+				swal("Product", "is added to cart !", "success");
 			});
 		});
 
 		$('.block2-btn-addwishlist').each(function(){
 			var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
 			$(this).on('click', function(){
-				swal(nameProduct, "is added to wishlist !", "success");
+				swal("Product", "added to wishlist !", "success");
 			});
 		});
 	</script>

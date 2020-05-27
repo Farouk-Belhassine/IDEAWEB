@@ -15,7 +15,7 @@ if(isset($_SESSION['m'])){
 }
 }
 else{
-	header('Location: session.php');
+	header('Location: session.html');
 }
 
 

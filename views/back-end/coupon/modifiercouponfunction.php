@@ -2,13 +2,13 @@
 include '../../../entities/coupon.php';
 include '../../../core/couponC.php';
 
-$num=$_GET['num'];
-$date_creation=$_GET['date_creation'];
-$taux_reduction=$_GET['taux_reduction'];
-$valabilite=$_GET['valabilite'];
-
-  $coupon=new coupon($num,$taux_reduction,$valabilite,$date_creation);
+if(isset($_POST['valabilite']) and isset($_POST['taux_reduction']) and isset($_POST['num']) and isset($_POST['date_creation'])){
+$coupon=new coupon($_POST['num'],$_POST['taux_reduction'],$_POST['valabilite'],$_POST['date_creation']);
   $couponC=new couponC();
-  $couponC->modifiercoupon($coupon);
+  $couponC->supprimercoupon($_POST['num']);
+  $couponC->ajoutercoupon($coupon);
   header('Location: affichercoupon.php');
+}
+else echo "vérifier les champs";
+echo "valabilite: ${_POST['valabilite']}| taux_reduction: ${_POST['taux_reduction']}| num: ${_POST['num']}| date_creation: ${_POST['date_creation']}"
 ?>

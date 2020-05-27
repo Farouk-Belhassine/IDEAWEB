@@ -1,4 +1,9 @@
 <?php
+
+session_start();
+
+if($_SESSION['ty']!="admin") header('Location: ../../fashe-colorlib/session.html');
+
   include '../../../entities/coupon.php';
    include '../../../core/couponC.php';
 
@@ -63,6 +68,7 @@ $(document).ready(function(){
 										</div>
 									</div>
 								</tr>
+								<tbody id="myTable2">
 									<tr>
 									<th class="text-center" onclick="sortTable(0)">Numero du coupon</th>
 									<th class="text-center" onclick="sortTable(1)">Taux de réduction</th>
@@ -107,7 +113,6 @@ function sortTable(n) {
   }
 }
 								</script>
-		  						<tbody id="myTable">
 									<?php
 									foreach ($mylist as $row)
 									{
@@ -118,7 +123,7 @@ function sortTable(n) {
 										<td><?php echo $row['date_creation'];?></td>
 										<td><?php echo $row['valabilite'];?></td>
 										<td><form method="POST" action="supprimercoupon.php"><input class="btn btn-danger btn-rounded btn-sm my-0" type="submit"  name="supprimer" value="supprimer"><input type="hidden" value="<?PHP echo $row['num']; ?>"name="num"></form></td>
-										<td><form method="POST" action="modifiercoupon.php"><input class="btn btn-danger btn-rounded btn-sm my-0" type="submit"  name="modifier" value="modifier"><form method="POST" action="modifiercouponfunction.php"><input type="hidden" value="<?PHP echo $row['num']; ?>"name="num"><input type="hidden" value="<?PHP echo $row['date_creation']; ?>"name="date_creation"></form></form></td>
+										<td><form method="POST" action="modifiercoupon.php"><input class="btn btn-danger btn-rounded btn-sm my-0" type="submit"  name="modifier" value="modifier"><input type="hidden" value="<?PHP echo $row['date_creation']; ?>"name="date_creation"><input type="hidden" value="<?PHP echo $row['num']; ?>"name="num"></form></td>
 									</tr>
 									<?php
 									}

@@ -1,5 +1,13 @@
+<?php
+
+session_start();
+
+if($_SESSION['ty']!="admin") header('Location: ../../fashe-colorlib/session.html');
+
+?>
 <!DOCTYPE html>
 <html lang="en">
+<title>Coupons</title>
 <head>
 		<script >
         function erreur(){   
