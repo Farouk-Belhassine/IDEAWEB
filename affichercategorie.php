@@ -27,7 +27,7 @@ $(document).ready(function(){
 
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Splite-Admin Dashboard</title>
+		<title>Splite-Category Dashboard</title>
 
 		<!--favicon -->
 		<link rel="icon" href="favicon.html" type="image/x-icon"/>
@@ -483,10 +483,10 @@ function sortTable(n) {
 
 						<!--page-header open-->
 						<div class="page-header">
-							<h4 class="page-title">ADMIN</h4>
+							<h4 class="page-title">Category</h4>
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="#" class="text-light-color">Tables</a></li>
-								<li class="breadcrumb-item active" aria-current="page">Admin</li>
+								<li class="breadcrumb-item active" aria-current="page">Category</li>
 							</ol>
 						</div>
 						<!--page-header closed-->
@@ -499,7 +499,7 @@ function sortTable(n) {
 										<span class="table-add float-right">
 											<a href="#!" class="btn btn-icon"><i class="fa fa-plus fa-1x" aria-hidden="true"></i></a>
 										</span>
-										<h4>Admin Table</h4>
+										<h4>Category Table</h4>
 									</div>
 									<div class="card-body">
 										<div id="table" class="table-responsive table-editable">

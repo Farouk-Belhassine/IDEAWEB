@@ -102,10 +102,12 @@
                                 <a class="side-menu__item" href="message.html"><i class="side-menu__icon fa fa-edit"></i><span class="side-menu__label">Forms</span></a>
                                 
                             </li>
+                           
                             <li class="slide">
-                                <a class="side-menu__item"  href="message.html"><i class="side-menu__icon fa fa-bar-chart"></i>chart</a>
-                               
-                            </li>
+                                <a class="side-menu__item" data-toggle="slide" href="#"><span class="side-menu__icon fa fa-bar-chart">chart</span><i class="angle fa fa-angle-right"></i></a>
+                                <ul class="slide-menu">
+                                    <li><a href="stat.php" class="slide-item">products</a></ul></li>
+
                             
                             <li class="slide">
                                 <a class="side-menu__item" data-toggle="slide" href="#"><i class="side-menu__icon fa fa-truck"></i><span class="side-menu__label">delivery management</span><i class="angle fa fa-angle-right"></i></a>
@@ -129,7 +131,6 @@
                                    
                                     <li><a href="afficher.php" class="slide-item">show products</a></li>
                                     <li><a href="fajoutcateg.php" class="slide-item">add category</a></li>
-                                    <li><a href="#" class="slide-item">remove category</a></li>
                                     <li><a href="affichercategorie.php" class="slide-item">show category</a></li>
                                     <li><a href="#" class="slide-item">edit category</a></li>
                                     

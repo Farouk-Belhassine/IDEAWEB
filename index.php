@@ -4,14 +4,71 @@
 <!-- Mirrored from www.spruko.com/demo/splite/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 10 Feb 2019 18:32:13 GMT -->
 <head>
 
-	 <script src="ajout.js"></script>
+<script >
+	function controle()
+{
+	var idproduit= document.getElementById("idproduit").value;
+	var inputList = document.getElementsByTagName("input");
+  var numChecked = 0;
+  var urlImage = document.getElementById("urlImage").value;
 
+
+  var Libelle=document.getElementById("Libelle").value;
+    var description=document.getElementById("description").value;
+
+  var quantite=document.getElementById("quantite").value;
+  var description=document.getElementById("description").value;
+ // var nom_categorie=document.getElementById("nom_categorie").value;
+if ((quantite=="")&&(Libelle=="")&&(description=="")&& (urlImage=="")&&(idproduit==""))
+{alert ("Merci de remplir les champs demandés!");}
+		else if (Libelle=="")
+  	{   alert("Merci de remplir le champ Libelle ");
+    header('Location: index.php');
+
+			}
+			else if (quantite=="")
+  	{   alert("Merci de remplir le champ quantite ");
+    header('Location: index.php');
+
+			}
+			else if (description=="")
+  	{   alert("Merci de remplir le champ idcategorie ");
+    header('Location: index.php');
+
+			}
+				else if (urlImage=="")
+  	{   alert("Merci de remplir le champ url ");
+    header('Location: index.php');
+
+			}
+			
+			 if (!isNaN(Libelle))
+				{alert("libelle doit etre une chaine de caracteres");}
+  
+
+  	
+  	for (var i = 0; i < inputList.length; i++) {
+      if (inputList[i].type == "checkbox" && inputList[i].checked) {
+          numChecked = numChecked + 1;
+          selectedItems+=inputList[i].value+",";
+      }
+    }
+     if (numChecked <2) {
+    alert("must check at least 1 box in each checkbox"); 
+      header('Location: index.php');
+
+    
+  }
+
+}
+
+</script>
 
 
 
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Splite-Admin Dashboard</title>
+		<title>Splite-Product Dashboard</title>
 
 		<!--favicon -->
 		<link rel="icon" href="favicon.html" type="image/x-icon"/>
@@ -68,7 +125,7 @@
 									</div>
 
 									<div class="passwd">
-										<input type="number" class="form-control" id="Prix" placeholder="$" name="Prix">
+										<input type="number" class="form-control" id="Prix" placeholder="DT" name="Prix">
 									</div>
 
 									<div class="passwd">
@@ -89,7 +146,7 @@
 									</div>
 
 									<div class="passwd">
-										<input type="text" class="form-control" id="Idescription" placeholder="idcategorie" name="description">
+										<input type="text" class="form-control" id="description" placeholder="idcategorie" name="description">
 									</div>
 
 
@@ -104,7 +161,8 @@
 
 
                                       <div class="submit">
-										<input class="btn btn-primary btn-block" type="submit" onclick="controle();return false;" value="Ajouter" name="ajouterproduit">
+										<input class="btn btn-primary btn-block" type="submit" onclick="controle(); " value="Ajouter" name="ajouterproduit">
+
 									</div>
 
                                        
