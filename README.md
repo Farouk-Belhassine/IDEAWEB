@@ -1,6 +1,7 @@
 <h1>IDEAWEB</h1>
 <p>IDEAWEB is a website for a clothing shop that includes both a front office and back office space. This project was
 	developed using native PHP, MySQL, HTML, CSS, and JavaScript.</p>
+<p>This was created in my novice days so excuse the mess you're about to witness</p>
 
 <h2>Features</h2>
 <ul>
